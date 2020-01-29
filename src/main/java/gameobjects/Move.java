@@ -1,4 +1,4 @@
-package kehtnakhkta18;
+package gameobjects;
 
 public class Move {
     
