@@ -1,7 +1,7 @@
 package kehtnakhkta18;
 
-
 import java.util.concurrent.TimeUnit;
+import javax.swing.SwingUtilities;
 
 
 /**
@@ -13,7 +13,7 @@ public final class App {
     static GamePanel gamePanel = new GamePanel();
 
     private App() {
-        gamePanel.initialize();
+        SwingUtilities.invokeLater(() -> gamePanel.initialize());
     }
 
 
@@ -35,7 +35,7 @@ public final class App {
 
             long elapsedTime = System.nanoTime() - start;
 
-
+            elapsedTime += 1;
             // TimeUnit
             long gameTime = TimeUnit.SECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS);
 
