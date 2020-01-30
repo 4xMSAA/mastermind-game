@@ -7,11 +7,11 @@ public class Score {
     public int Moves;
 
 
-    public String[] Serialize() {
+    public String[] serialize() {
         return null;
     }
 
-    public boolean CompareScoreTo(Object score) {
+    public boolean compareScoreTo(Object score) {
         return false;
     }
 }

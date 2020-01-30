@@ -1,7 +1,6 @@
 package kehtnakhkta18;
 
 
-import java.sql.Time;
 import java.util.concurrent.TimeUnit;
 
 
@@ -11,28 +10,30 @@ import java.util.concurrent.TimeUnit;
  */
 public final class App {
 
-    static MastermindGame MMGame = new MastermindGame();
-    private App() {
+    static GamePanel gamePanel = new GamePanel();
 
+    private App() {
+        gamePanel.initialize();
     }
 
 
     /**
-     * Says hello to the world.
-     *
+     * 
      * @param args The arguments of the program.
      */
     public static void main(String[] args) {
-        MMGame.initializeForm();
+        new App();
     }
 
+    /**
+     * 
+     * @throws InterruptedException
+     */
     private static void time() throws InterruptedException {
         long start = System.nanoTime();
         while (true) {
 
-            long end = System.nanoTime();
-
-            long elapsedTime = end - start;
+            long elapsedTime = System.nanoTime() - start;
 
 
             // TimeUnit
