@@ -10,8 +10,6 @@ import java.util.concurrent.TimeUnit;
  *
  */
 public final class App {
-
-    static MastermindGame MMGame = new MastermindGame();
     private App() {
 
     }
@@ -23,12 +21,14 @@ public final class App {
      * @param args The arguments of the program.
      */
     public static void main(String[] args) {
-        MMGame.initializeForm();
+        //MMGame.initializeForm();
+        //time();
     }
 
     private static void time() throws InterruptedException {
         long start = System.nanoTime();
-        while (true) {
+
+        while (true) { //siia panna while gameEnd = false või midagi selist
 
             long end = System.nanoTime();
 
@@ -36,12 +36,19 @@ public final class App {
 
 
             // TimeUnit
-            long gameTime = TimeUnit.SECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS);
+            long gameSeconds = TimeUnit.SECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS);
 
-            System.out.println(gameTime + " seconds");
-            Thread.sleep(1000);
+            System.out.println(gameSeconds + " seconds");// labelise panna
+
         }
+        //time convert 4
+        /*while gameSeconds < 60{
+            gameMinutes++;
+            gameSeconds =- 60;
+
+        }*/
     }
+
 
 }
 
