@@ -34,6 +34,8 @@ public final class App {
         long start = System.nanoTime();
         long gameSeconds = 0;
         long gameMinutes = 0;
+        int x = 1;
+        int y = 0;
         while (true) { //siia panna while gameEnd = false või midagi selist
 
             long end = System.nanoTime();
@@ -44,11 +46,12 @@ public final class App {
             // TimeUnit
              gameSeconds = TimeUnit.SECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS);
              gameMinutes = TimeUnit.MINUTES.convert(elapsedTime, TimeUnit.NANOSECONDS);
-             if (gameMinutes == 1){
-                 gameSeconds -= 60;
+             if (gameMinutes == x){
+                 y++;
+                 x++;
             }
 
-            System.out.println(gameMinutes + ":" + gameSeconds);// labelise panna
+            System.out.println(gameMinutes + ":" + (gameSeconds - 60 * y));// labelise panna
 
         }
     }
