@@ -1,7 +1,13 @@
 package kehtnakhkta18;
 
 import java.util.concurrent.TimeUnit;
-import javax.swing.SwingUtilities
+import javax.swing.SwingUtilities;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
 
 /**
  *
@@ -18,25 +24,26 @@ public final class App {
 
 
     /**
-     * 
+     *
      * @param args The arguments of the program.
      */
     public static void main(String[] args) {
         new App();
+        time();
     }
 
     /**
-     * 
+     *
      * @throws InterruptedException
      */
-    private static void time() throws InterruptedException {
+    private static void time() {
         long start = System.nanoTime();
         long gameSeconds = 0;
         long gameMinutes = 0;
         int x = 1;
         int y = 0;
         String gametime;
-        while (gameSeconds < 10) { //siia panna while gameEnd = false või midagi selist
+        while (gameSeconds < 61) { //siia panna while gameEnd = false või midagi selist
 
             long elapsedTime = System.nanoTime() - start;
 
@@ -52,7 +59,7 @@ public final class App {
             System.out.println(gameMinutes + ":" + (gameSeconds - 60 * y));// labelise panna
 
         }
-        gametime = gameMinutes + ":" + gameSeconds;
+        gametime = gameMinutes + ":" + (gameSeconds - 60 * y);
         scoreBoard(gametime);
     }
 
