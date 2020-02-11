@@ -36,5 +36,8 @@ public class MastermindGame {
         frame.setSize(300, 300);
         frame.setLocation(x, y);
         frame.setVisible(true);
+
     }
+
+
 }

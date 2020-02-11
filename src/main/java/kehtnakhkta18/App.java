@@ -17,19 +17,24 @@ public final class App {
     }
 
 
+
     /**
      * Says hello to the world.
      *
      * @param args The arguments of the program.
      */
     public static void main(String[] args) {
+
         MMGame.initializeForm();
-        //time();
+        time();
     }
 
-    private static void time() throws InterruptedException {
+
+    private static void time() {
         long start = System.nanoTime();
-        while (true) {
+        long gameSeconds = 0;
+        long gameMinutes = 0;
+        while (true) { //siia panna while gameEnd = false või midagi selist
 
             long end = System.nanoTime();
 
@@ -37,17 +42,15 @@ public final class App {
 
 
             // TimeUnit
-            long gameSeconds = TimeUnit.SECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS);
+             gameSeconds = TimeUnit.SECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS);
+             gameMinutes = TimeUnit.MINUTES.convert(elapsedTime, TimeUnit.NANOSECONDS);
+             if (gameMinutes == 1){
+                 gameSeconds -= 60;
+            }
 
-            System.out.println(gameSeconds + " seconds");// labelise panna
+            System.out.println(gameMinutes + ":" + gameSeconds);// labelise panna
 
         }
-        //time convert 4
-        /*while gameSeconds < 60{
-            gameMinutes++;
-            gameSeconds =- 60;
-
-        }*/
     }
 
 
