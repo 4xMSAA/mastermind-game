@@ -2,8 +2,6 @@ package kehtnakhkta18;
 
 import gameobjects.CodeCombination;
 
-import javax.swing.*;
-import java.awt.*;
 
 public class MastermindGame {
 
@@ -38,6 +36,4 @@ public class MastermindGame {
         frame.setVisible(true);
 
     }
-
-
 }

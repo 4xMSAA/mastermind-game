@@ -1,14 +1,7 @@
 package kehtnakhkta18;
 
-
-import java.sql.Time;
 import java.util.concurrent.TimeUnit;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.BufferedWriter;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
+import javax.swing.SwingUtilities
 
 /**
  *
@@ -16,27 +9,27 @@ import java.io.OutputStreamWriter;
  */
 public final class App {
 
-    static MastermindGame MMGame = new MastermindGame();
-    private App() {
+    static GamePanel gamePanel = new GamePanel();
 
+    private App() {
+        SwingUtilities.invokeLater(() -> gamePanel.initialize());
     }
 
 
 
     /**
-     * Says hello to the world.
-     *
+     * 
      * @param args The arguments of the program.
      */
     public static void main(String[] args) {
-
-        MMGame.initializeForm();
-        time();
-
+        new App();
     }
 
-
-    private static void time() {
+    /**
+     * 
+     * @throws InterruptedException
+     */
+    private static void time() throws InterruptedException {
         long start = System.nanoTime();
         long gameSeconds = 0;
         long gameMinutes = 0;
@@ -45,11 +38,9 @@ public final class App {
         String gametime;
         while (gameSeconds < 10) { //siia panna while gameEnd = false või midagi selist
 
-            long end = System.nanoTime();
+            long elapsedTime = System.nanoTime() - start;
 
-            long elapsedTime = end - start;
-
-
+            elapsedTime += 1;
             // TimeUnit
              gameSeconds = TimeUnit.SECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS);
              gameMinutes = TimeUnit.MINUTES.convert(elapsedTime, TimeUnit.NANOSECONDS);
