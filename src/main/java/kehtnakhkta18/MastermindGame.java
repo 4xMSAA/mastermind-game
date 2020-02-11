@@ -1,6 +1,6 @@
 package kehtnakhkta18;
 
-import gameobjects.CodeCombination;
+import gameobjects.*;
 
 
 public class MastermindGame {
@@ -22,6 +22,12 @@ public class MastermindGame {
         }
     }
 
+    public MastermindGame() {
+
+    }
+
     public Size BoardSize;
     public CodeCombination CodeGoal;
+
+    public GuesserCodeRows GuessingCodes;
 }
