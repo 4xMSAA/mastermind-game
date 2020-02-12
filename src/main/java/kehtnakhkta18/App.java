@@ -61,8 +61,14 @@ public final class App {
                     gm += 1;
                     gs -=60;
                 }
-                gt = (gm + ":" + gs);
-                GamePanel.lblTimer.setText(gt);
+                if (gs < 10){
+                    gt = (gm + ":0" + gs);
+                }else {
+                    gt = (gm + ":" + gs);
+                }
+
+
+                GamePanel.lblTimer.setText("Mängu aeg: " + gt);
             }
 
     }
