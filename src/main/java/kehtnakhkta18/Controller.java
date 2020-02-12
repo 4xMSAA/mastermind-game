@@ -17,7 +17,8 @@ public class Controller {
 
     private final GamePanel GamePanel;
    // private final Model model;
-
+   public static Timer timer;
+   public static boolean gameon = false;
     /**
      * Controlleri konstruktor koos View ja Model parameeriga
      * @param GamePanel
@@ -43,9 +44,17 @@ public class Controller {
         @Override
         public void actionPerformed(ActionEvent e) {
             JOptionPane.showMessageDialog(null, "Uue mängu alustamise nupp");
+            if (gameon == false){
+                timer = new Timer();
+                timer.schedule(new App.time(), 0, 1000);
+                gameon = true;
+            }else {
+                timer.cancel();
+                timer = new Timer();
+                timer.schedule(new App.time(), 0, 1000);
+            }
 
-            java.util.Timer timer = new Timer();
-            timer.schedule(new App.time(), 0, 1000);
+
         }
     }
 

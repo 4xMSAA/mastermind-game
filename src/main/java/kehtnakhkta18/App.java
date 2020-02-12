@@ -1,9 +1,6 @@
 package kehtnakhkta18;
 
-import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
-import javax.swing.SwingUtilities;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -16,7 +13,7 @@ import java.io.OutputStreamWriter;
  *
  */
 public final class App {
-    public static String gametime = "0:0";
+    public static String gametime = "0:00";
     //static GamePanel gamePanel = new GamePanel();
 
     private App() {
@@ -26,7 +23,7 @@ public final class App {
 
         GamePanel.pack();
         GamePanel.setLocationRelativeTo(null); // Paiguta Frame ekraani keskele
-        GamePanel.setVisible(true);  // Näita Frame't
+        GamePanel.setVisible(true);
 
 
 
@@ -73,11 +70,11 @@ public final class App {
 
     }
 
-    public static void scoreBoard(String gametime) {
+    public static void scoreBoard(String gt) {
 
         String username = null; //Ajutine osa, kuni saaks mingid moodi ühendada teiste osadega
         String skoor = null;
-        String time = gametime;
+        String time = gt;
         String turns = null;
 
         try {
