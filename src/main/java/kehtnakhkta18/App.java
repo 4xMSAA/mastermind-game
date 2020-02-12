@@ -15,10 +15,16 @@ import java.io.OutputStreamWriter;
  */
 public final class App {
 
-    static GamePanel gamePanel = new GamePanel();
+    //static GamePanel gamePanel = new GamePanel();
 
     private App() {
-        SwingUtilities.invokeLater(() -> gamePanel.initialize());
+        //SwingUtilities.invokeLater(() -> gamePanel.initialize());
+        GamePanel GamePanel = new GamePanel();
+        Controller controller = new Controller(GamePanel);
+
+        GamePanel.pack();
+        GamePanel.setLocationRelativeTo(null); // Paiguta Frame ekraani keskele
+        GamePanel.setVisible(true);  // Näita Frame't
     }
 
 
@@ -28,6 +34,7 @@ public final class App {
      * @param args The arguments of the program.
      */
     public static void main(String[] args) {
+       // GamePanel gamePanel = new GamePanel();
         new App();
         time();
     }
