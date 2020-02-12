@@ -1,5 +1,7 @@
 package kehtnakhkta18;
 
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 import javax.swing.SwingUtilities;
 import java.io.BufferedReader;
@@ -14,7 +16,7 @@ import java.io.OutputStreamWriter;
  *
  */
 public final class App {
-
+    public static String gametime = "0:0";
     //static GamePanel gamePanel = new GamePanel();
 
     private App() {
@@ -25,6 +27,10 @@ public final class App {
         GamePanel.pack();
         GamePanel.setLocationRelativeTo(null); // Paiguta Frame ekraani keskele
         GamePanel.setVisible(true);  // Näita Frame't
+
+
+
+
     }
 
 
@@ -36,38 +42,29 @@ public final class App {
     public static void main(String[] args) {
        // GamePanel gamePanel = new GamePanel();
         new App();
-        time();
+
     }
 
     /**
      *
      * @throws InterruptedException
      */
-    private static void time() {
-        long start = System.nanoTime();
-        long gameSeconds = 0;
-        long gameMinutes = 0;
-        int x = 1;
-        int y = 0;
-        String gametime;
-        while (gameSeconds < 61) { //siia panna while gameEnd = false või midagi selist
+    static class time extends TimerTask{
 
-            long elapsedTime = System.nanoTime() - start;
+        int gs = 0;
+        int gm = 0;
+        String gt;
 
-            elapsedTime += 1;
-            // TimeUnit
-             gameSeconds = TimeUnit.SECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS);
-             gameMinutes = TimeUnit.MINUTES.convert(elapsedTime, TimeUnit.NANOSECONDS);
-             if (gameMinutes == x){
-                 y++;
-                 x++;
+            public void run() {
+                gs++;
+                if (gs == 60){
+                    gm += 1;
+                    gs -=60;
+                }
+                gt = (gm + ":" + gs);
+                GamePanel.lblTimer.setText(gt);
             }
 
-            System.out.println(gameMinutes + ":" + (gameSeconds - 60 * y));// labelise panna
-
-        }
-        gametime = gameMinutes + ":" + (gameSeconds - 60 * y);
-        scoreBoard(gametime);
     }
 
     public static void scoreBoard(String gametime) {

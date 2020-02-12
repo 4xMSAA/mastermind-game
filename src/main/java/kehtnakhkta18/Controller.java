@@ -6,8 +6,8 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
+import java.util.Timer;
+import javax.swing.*;
 
 /**
  *
@@ -43,6 +43,9 @@ public class Controller {
         @Override
         public void actionPerformed(ActionEvent e) {
             JOptionPane.showMessageDialog(null, "Uue mängu alustamise nupp");
+
+            java.util.Timer timer = new Timer();
+            timer.schedule(new App.time(), 0, 1000);
         }
     }
 
@@ -50,6 +53,7 @@ public class Controller {
         @Override
         public void actionPerformed(ActionEvent e) {
             JOptionPane.showMessageDialog(null, "Siia peaks edetabeli aken tulema");
+
         }
     }
 

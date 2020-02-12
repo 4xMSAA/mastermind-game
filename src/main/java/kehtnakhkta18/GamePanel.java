@@ -54,7 +54,7 @@ public class GamePanel extends JFrame {
     private final JButton btnReady = new JButton("Valmis"); // Siia tuleb pilt peale ;
     private final JButton btnShow = new JButton("Näita");
     private final JCheckBox chkExpert = new JCheckBox("Ekspert");
-    private final JLabel lblTimer = new JLabel("Mängu aeg: 0 sek.");
+    public static JLabel lblTimer = new JLabel("0,0");
 
     /**
      * View konstruktor
