@@ -10,14 +10,38 @@ public class GuesserCodeRows {
     }
 
     /**
-
+     *
+     * @param rowIndex
+     * @param column
+     * @param tokenCode
      */
-    public void PlaceToken(int rowIndex, int column, int tokenCode) {
+    public void placeToken(int rowIndex, int column, int tokenCode) {
         Rows[rowIndex].SetToken(column, tokenCode);
     }
 
-    public CodeCombination GetRow(int index) {
+    /**
+     *
+     * @param index
+     * @return
+     */
+    public CodeCombination getRow(int index) {
         return Rows[index];
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean hasWinningRow() {
+        return false;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public CodeCombination getWinningRow() {
+        return null;
     }
 
 }
