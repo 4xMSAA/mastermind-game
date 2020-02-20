@@ -1,5 +1,7 @@
 package kehtnakhkta18;
 
+import java.util.ArrayList;
+
 import gameobjects.*;
 
 
@@ -13,7 +15,7 @@ public class MastermindGame {
 
 
 
-        public Size(int X, int Y) {
+        public Size(final int X, final int Y) {
             this.X = X;
             this.Y = Y;
         }
@@ -32,6 +34,8 @@ public class MastermindGame {
 
     public GuesserCodeRows GuessingCodes;
 
+    private final ArrayList<Move> Moves;
+
     /**
      * Alusta uus Mõttemeistri mäng 4 veeruga, 14 reaga ning 8 sümbolivõimalustega
      */
@@ -45,10 +49,15 @@ public class MastermindGame {
      * @param rows
      * @param symbols
      */
-    public MastermindGame(int columns, int rows, int sybmols) {
-        if (sybmols < columns) { throw new IllegalArgumentException("Possible symbols must be equal or more than amount of columns")}
+    public MastermindGame(final int columns, final int rows, final int symbols) {
+        if (symbols < columns) { throw new IllegalArgumentException("Possible symbols must be equal or more than amount of columns"); }
+
         BoardSize = new Size(columns, rows);
         CodeGoal = new CodeCombination(columns);
+        Moves = new ArrayList<Move>();
+
+
 
     }
+
 }

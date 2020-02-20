@@ -16,7 +16,7 @@ public class GuesserCodeRows {
      * @param tokenCode
      */
     public void placeToken(int rowIndex, int column, int tokenCode) {
-        Rows[rowIndex].SetToken(column, tokenCode);
+        Rows[rowIndex].setToken(column, tokenCode);
     }
 
     /**
